@@ -14,7 +14,6 @@ namespace PPAI_2023.Gestores
         private OpcionLlamada opcion;
         private SubOpcionLlamada subOpcionLlamada;
         private Estado estadoEnCurso;
-        private InformacionCliente informacionCliente;
 
         private PantRegistrarRespuesta pantRegistrarRespuesta = new PantRegistrarRespuesta();
 

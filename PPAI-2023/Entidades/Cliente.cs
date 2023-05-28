@@ -25,7 +25,8 @@ namespace PPAI_2023.Entidades
         {
             set { nombreCompleto = value; }
         }
-        public string GetNombre() {
+        public string GetNombre()
+        {
             return nombreCompleto;
         }
 
@@ -42,14 +43,14 @@ namespace PPAI_2023.Entidades
             Validacion esInformacionCorrecta = new Validacion();
             foreach (var item in informacionCliente)
             {
-                if (item.esValidacion(datoAValidar)) esInformacionCorrecta = datoAValidar;
-                else esInformacionCorrecta = null;
+                if (item.esValidacion(datoAValidar))
+                {
+                    if(item.EsInformacionCorrecta(esInformacionCorrecta.Nombre)) return true;
+                }
             }
-
-            //informacionCliente.esValidacion();
-            return informacionCliente[0].EsInformacionCorrecta(esInformacionCorrecta/*, opcionValidacion*/);
+            return false;
         }
 
-        
+
     }
 }

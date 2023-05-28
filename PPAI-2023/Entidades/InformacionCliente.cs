@@ -19,7 +19,7 @@ namespace PPAI_2023.Entidades
             else return false;
         }
 
-        public bool EsInformacionCorrecta(Validacion datoAValidar/*, OpcionValidacion opcionValidacion*/)
+        public bool EsInformacionCorrecta(string datoAValidar)
         {
             OpcionValidacion opcionValidacion = new OpcionValidacion();
             return opcionValidacion.EsCorrecta(datoAValidar);

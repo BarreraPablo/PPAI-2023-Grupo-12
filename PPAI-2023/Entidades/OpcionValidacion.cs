@@ -13,9 +13,9 @@ namespace PPAI_2023.Entidades
 
         public string GetDescripcion => Descripcion;
 
-        public bool EsCorrecta(Validacion datoAValidar)
+        public bool EsCorrecta(string datoAValidar)
         {
-            if (Descripcion == datoAValidar.Nombre) Correcta = true;
+            if (Descripcion == datoAValidar) Correcta = true;
             else Correcta = false;
             return Correcta;
         }

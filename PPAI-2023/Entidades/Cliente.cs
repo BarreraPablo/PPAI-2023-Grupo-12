@@ -16,6 +16,9 @@ namespace PPAI_2023.Entidades
             set { dni = value; }
         }
 
+        private List<InformacionCliente> informacionCliente;
+
+        private List<String> datosEnLlamada;
 
         private string nombreCompleto;
         public string NombreCompleto
@@ -34,6 +37,18 @@ namespace PPAI_2023.Entidades
             set { nroCelular = value; }
         }
 
+        public void EjecutarValidacion()
+        {
+            foreach (var datoAValidar in datosEnLlamada)
+            {
+                EsInformacionCorrecta(datoAValidar);
+            }
+        }
 
+        public void EsInformacionCorrecta(string datoAValidar)
+        {
+            OpcionValidacion opcionValidacion = new OpcionValidacion();
+            opcionValidacion.EsCorrecta(datoAValidar);            
+        }
     }
 }

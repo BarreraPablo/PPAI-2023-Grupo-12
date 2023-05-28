@@ -26,6 +26,7 @@ namespace PPAI_2023.Gestores
 
             SetEstadoEnCurso();
             ObtenerDatosLlamada();
+            //MostrarDatosLlamada(nombreCliente); TODO: Mostrar los datos del cliente
         }
 
         private void SetEstadoEnCurso()
@@ -56,7 +57,17 @@ namespace PPAI_2023.Gestores
         private void ObtenerDatosLlamada()
         {
             var nombreCliente = llamada.GetNombreClienteDeLlamada();
-            var subOpcionNombre = 
+            var subOpcionNombre = subOpcionLlamada.getDescripcionConSubopcion();
+        }
+
+        private void MostrarDatosLlamada(string nombreCliente)
+        {
+            //pantRegistrarRespuesta.txtNombre = nombreCliente; TODO: Mostrar info por pantalla
+        }
+
+        private void ObtenerValidacionParaSubopcion()
+        {
+            List<Validacion> validaciones = subOpcionLlamada.ObtenerValidaciones();
         }
     }
 }

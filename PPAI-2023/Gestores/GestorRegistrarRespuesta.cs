@@ -14,6 +14,7 @@ namespace PPAI_2023.Gestores
         private OpcionLlamada opcion;
         private SubOpcionLlamada subOpcionLlamada;
         private Estado estadoEnCurso;
+        private InformacionCliente informacionCliente;
 
         private PantRegistrarRespuesta pantRegistrarRespuesta = new PantRegistrarRespuesta();
 
@@ -57,7 +58,8 @@ namespace PPAI_2023.Gestores
         private void ObtenerDatosLlamada()
         {
             var nombreCliente = llamada.GetNombreClienteDeLlamada();
-            var subOpcionNombre = subOpcionLlamada.getDescripcionConSubopcion();
+            var opcionNombre = opcion.Nombre;
+            var subOpcionNombre = subOpcionLlamada.Nombre;
         }
 
         private void MostrarDatosLlamada(string nombreCliente)
@@ -68,6 +70,11 @@ namespace PPAI_2023.Gestores
         private void ObtenerValidacionParaSubopcion()
         {
             List<Validacion> validaciones = subOpcionLlamada.ObtenerValidaciones();
+            foreach (var validacion in validaciones)
+            {
+                llamada.Cliente.EjecutarValidacion(validacion);
+            }
         }
+
     }
 }

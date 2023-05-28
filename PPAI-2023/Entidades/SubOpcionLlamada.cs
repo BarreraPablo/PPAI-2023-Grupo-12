@@ -32,19 +32,10 @@ namespace PPAI_2023.Entidades
             set { validacionRequerida = value; }
         }
 
-        public string getDescripcionConSubopcion()
-        {
-            return nombre;
-        }
-
         public List<Validacion> ObtenerValidaciones()
         {
             if (ValidacionRequerida.Count() > 0)
             {
-                foreach (var validacion in ValidacionRequerida)
-                {
-                    validacionRequerida.Add(validacion);
-                }
                 return validacionRequerida;
             }
             return null;

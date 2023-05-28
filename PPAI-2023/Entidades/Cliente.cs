@@ -18,7 +18,7 @@ namespace PPAI_2023.Entidades
 
         private List<InformacionCliente> informacionCliente;
 
-        private List<String> datosEnLlamada;
+        private List<String> DatosEnLlamada;
 
         private string nombreCompleto;
         public string NombreCompleto
@@ -37,18 +37,19 @@ namespace PPAI_2023.Entidades
             set { nroCelular = value; }
         }
 
-        public void EjecutarValidacion()
+        public bool EjecutarValidacion(Validacion datoAValidar)
         {
-            foreach (var datoAValidar in datosEnLlamada)
+            Validacion esInformacionCorrecta = new Validacion();
+            foreach (var item in informacionCliente)
             {
-                EsInformacionCorrecta(datoAValidar);
+                if (item.esValidacion(datoAValidar)) esInformacionCorrecta = datoAValidar;
+                else esInformacionCorrecta = null;
             }
+
+            //informacionCliente.esValidacion();
+            return informacionCliente[0].EsInformacionCorrecta(esInformacionCorrecta/*, opcionValidacion*/);
         }
 
-        public void EsInformacionCorrecta(string datoAValidar)
-        {
-            OpcionValidacion opcionValidacion = new OpcionValidacion();
-            opcionValidacion.EsCorrecta(datoAValidar);            
-        }
+        
     }
 }

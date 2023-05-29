@@ -21,5 +21,10 @@ namespace PPAI_2023.Entidades
         {
             return nombre == "En Curso";
         }
+
+        public bool EsFinalizada()
+        {
+            return nombre == "Finalizada";
+        }
     }
 }

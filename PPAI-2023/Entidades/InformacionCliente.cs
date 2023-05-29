@@ -11,18 +11,16 @@ namespace PPAI_2023.Entidades
 
         public string datoAValidar { get; set; }
         public OpcionValidacion opcionCorrecta { get; set; }
-        private Validacion validacion { get; set; }
+        public Validacion validacion { get; set; }
 
-        public bool esValidacion(Validacion datoAValidar)
+        public bool EsValidacion(string nombreValidacion)
         {
-            if (validacion == datoAValidar) return true;
-            else return false;
+            return validacion.GetNombre() == nombreValidacion;
         }
 
-        public bool EsInformacionCorrecta(string datoAValidar)
+        public bool EsInformacionCorrecta(string valorAValidar)
         {
-            OpcionValidacion opcionValidacion = new OpcionValidacion();
-            return opcionValidacion.EsCorrecta(datoAValidar);
+            return opcionCorrecta.EsCorrecta(valorAValidar);
         }
     }
 }

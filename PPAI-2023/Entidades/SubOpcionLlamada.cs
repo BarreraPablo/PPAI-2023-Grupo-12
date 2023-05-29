@@ -12,8 +12,12 @@ namespace PPAI_2023.Entidades
 
         public string Nombre
         {
-            get { return nombre; }
             set { nombre = value; }
+        }
+
+        public string GetNombre()
+        {
+            return nombre;
         }
 
         private int nroOrder;
@@ -32,13 +36,23 @@ namespace PPAI_2023.Entidades
             set { validacionRequerida = value; }
         }
 
-        public List<Validacion> ObtenerValidaciones()
+        public List<(int nroOrden, string nombreValidacion)> ObtenerValidaciones()
         {
-            if (ValidacionRequerida.Count() > 0)
+            if (TieneValidacion())
             {
-                return validacionRequerida;
+                var resultados = new List<(int nroOrden, string nombre)>();
+                foreach (var validacion in validacionRequerida)
+                {
+                    resultados.Add(validacion.GetDatosValidacion());
+                }
+                return resultados;
             }
-            return null;
+            return new List<(int nroOrden, string nombreValidacion)>();
+        }
+
+        public bool TieneValidacion()
+        {
+            return validacionRequerida.Count() > 0;
         }
     }
 }

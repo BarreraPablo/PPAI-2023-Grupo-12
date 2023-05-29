@@ -28,12 +28,32 @@ namespace PPAI_2023
 
         public static void GenerarEntidadesDeSoporte()
         {
+            var validaciones = new List<Validacion>
+            {
+                new Validacion
+                {
+                    NroOrden = 1,
+                    Nombre = "fechaNacimiento"
+                },
+                new Validacion
+                {
+                    NroOrden = 2,
+                    Nombre = "codigoPostal"
+                }
+            };
+            Validacion.AddRange(validaciones);
+
             var subopciones = new List<SubOpcionLlamada>
             {
                 new SubOpcionLlamada
                 {
                     NroOrder = 1,
-                    Nombre = "Sub opcion 1"
+                    Nombre = "Sub opcion 1",
+                    ValidacionRequerida = new List<Validacion>
+                    {
+                        validaciones[0],
+                        validaciones[1]
+                    }
                 },
                 new SubOpcionLlamada
                 {
@@ -88,13 +108,41 @@ namespace PPAI_2023
             };
             CategoriaLlamadas.AddRange(categoriaLlamadas);
 
+            var opcionValidacion = new List<OpcionValidacion>
+            {
+                new OpcionValidacion
+                {
+                    Descripcion = "12-07-1999"
+                },
+                new OpcionValidacion
+                {
+                    Descripcion = "X5000"
+                }
+            };
+
+            var informacionCliente = new List<InformacionCliente>
+            {
+                new InformacionCliente
+                {
+                    validacion = validaciones[0], //fechaNacimiento
+                    opcionCorrecta = opcionValidacion[0] //"12-07-1999"
+                },
+               new InformacionCliente
+                {
+                    validacion = validaciones[1], //codigoPostal
+                    opcionCorrecta = opcionValidacion[1] //X5000
+                }
+            };
+
             var clientes = new List<Cliente>
             {
                 new Cliente
                 {
                     Dni = 11222333,
                     NroCelular = 35122333112,
-                    NombreCompleto = "Juan Fernandez"
+                    NombreCompleto = "Juan Fernandez",
+                    InformacionCliente = informacionCliente
+                    
                 },
                 new Cliente
                 {
@@ -120,7 +168,24 @@ namespace PPAI_2023
                     Nombre = "Finalizada"
                 }
             };
+            Estados.AddRange(estados);
 
+            var acciones = new List<Accion>
+            {
+                new Accion
+                {
+                    Descripcion = "Accion 1"
+                },
+                new Accion
+                {
+                    Descripcion = "Accion 2"
+                },
+                new Accion
+                {
+                    Descripcion = "Accion 3"
+                }
+            };
+            Acciones.AddRange(acciones);
         }
 
     }

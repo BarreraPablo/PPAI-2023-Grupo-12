@@ -8,16 +8,28 @@ namespace PPAI_2023.Entidades
 {
     public class OpcionValidacion
     {
-        public bool Correcta { get; set; }
-        private string Descripcion;
+        private bool correcta;
 
-        public string GetDescripcion => Descripcion;
-
-        public bool EsCorrecta(string datoAValidar)
+        public bool Correcta
         {
-            if (Descripcion == datoAValidar) Correcta = true;
-            else Correcta = false;
-            return Correcta;
+            get { return correcta; }
+            set { correcta = value; }
+        }
+
+        private string descripcion;
+
+        public string Descripcion
+        {
+            set { descripcion = value; }
+        }
+
+        public string GetDescripcion() {
+            return descripcion;
+        }
+
+        public bool EsCorrecta(string valorAValidar)
+        {
+            return valorAValidar == GetDescripcion();
         }
     }
 }

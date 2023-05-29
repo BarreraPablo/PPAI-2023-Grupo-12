@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PPAI_2023.Gestores
 {
@@ -15,7 +16,19 @@ namespace PPAI_2023.Gestores
         private SubOpcionLlamada subOpcionLlamada;
         private Estado estadoEnCurso;
 
-        private PantRegistrarRespuesta pantRegistrarRespuesta = new PantRegistrarRespuesta();
+        private Queue<(int nroOrden, string nombreValidacion)> queueValidaciones;
+
+        private PantRegistrarRespuesta pantRegistrarRespuesta = null;
+        private GestorRegistrarAccionRequerida gestorRegistrarAccionRequerida;
+
+        private string respuestaOperador = null;
+        private string accionARealizarSeleccionada = null;
+
+        public GestorRegistrarRespuesta(GestorRegistrarAccionRequerida gestorRegistrarAccionRequerida)
+        {
+            pantRegistrarRespuesta = new PantRegistrarRespuesta(this);
+            this.gestorRegistrarAccionRequerida = gestorRegistrarAccionRequerida;
+        }
 
         public void OpcionRegistrarseConOperador(Llamada llamada, CategoriaLlamada categoria, OpcionLlamada opcion, SubOpcionLlamada subOpcionLlamada)
         {
@@ -25,15 +38,16 @@ namespace PPAI_2023.Gestores
             this.subOpcionLlamada = subOpcionLlamada;
 
             SetEstadoEnCurso();
-            ObtenerDatosLlamada();
-            //MostrarDatosLlamada(nombreCliente); TODO: Mostrar los datos del cliente
+            var (nombreCliente, nombreCategoria, nombreOpcion, nombreSubopcion) = ObtenerDatosLlamada();
+            pantRegistrarRespuesta.MostrarDatosLlamada(nombreCliente, nombreCategoria, nombreOpcion, nombreSubopcion);
+            ObtenerValidacionesParaSubopcion();
         }
 
         private void SetEstadoEnCurso()
         {
             estadoEnCurso = BuscarEstadoParaAsignar();
             var fechaHoraActual = GetFechaYHoraActual();
-            llamada.SetEstadoEnCurso(fechaHoraActual, estadoEnCurso);
+            llamada.SetEstadoActual(fechaHoraActual, estadoEnCurso);
         }
 
         private Estado BuscarEstadoParaAsignar()
@@ -54,26 +68,139 @@ namespace PPAI_2023.Gestores
             return DateTime.Now;
         }
 
-        private void ObtenerDatosLlamada()
+        private (string, string, string, string) ObtenerDatosLlamada()
         {
             var nombreCliente = llamada.GetNombreClienteDeLlamada();
-            var opcionNombre = opcion.Nombre;
-            var subOpcionNombre = subOpcionLlamada.Nombre;
+            var opcionNombre = opcion.GetNombre();
+            var subOpcionNombre = subOpcionLlamada.GetNombre();
+            var categoriaSeleccionada = categoria.GetNombre();
+
+            return (nombreCliente, opcionNombre, subOpcionNombre, categoriaSeleccionada);
         }
 
-        private void MostrarDatosLlamada(string nombreCliente)
-        {
-            //pantRegistrarRespuesta.txtNombre = nombreCliente; TODO: Mostrar info por pantalla
-        }
 
-        private void ObtenerValidacionParaSubopcion()
+        private void ObtenerValidacionesParaSubopcion()
         {
-            List<Validacion> validaciones = subOpcionLlamada.ObtenerValidaciones();
-            foreach (var validacion in validaciones)
+            List<(int nroOrden, string nombreValidacion)> validaciones = null;
+            if (subOpcionLlamada != null)
             {
-                llamada.Cliente.EjecutarValidacion(validacion);
+                validaciones = subOpcionLlamada.ObtenerValidaciones();
+            } else
+            {
+                // validaciones = opcion.ObtenerValidaciones(); No vamos a codificar esta alternativa
+            }
+
+            var validacionesOrdenadas = validaciones.OrderBy(v => v.nroOrden);
+            queueValidaciones = new Queue<(int nroOrden, string nombreValidacion)>(validacionesOrdenadas);
+
+            MostrarProximaValidacion();
+        }
+
+        private void MostrarProximaValidacion()
+        {
+            var siguienteValidacion = queueValidaciones.Dequeue();
+            pantRegistrarRespuesta.MostrarValidacion(siguienteValidacion.nombreValidacion);
+        }
+
+        public void TomarRespuestaValidacion(string nombreValidacion, string valor)
+        {
+            var resultadoValidacion = llamada.Cliente.EjecutarValidacion(nombreValidacion, valor);
+
+            if (resultadoValidacion)
+            {
+                if(queueValidaciones.Count() > 0)
+                {
+                    MostrarProximaValidacion();
+                } else
+                {
+                    pantRegistrarRespuesta.SolicitarDescripcionDeRespuesta();
+
+                    var acciones = ObtenerAcciones();
+
+                    var accionesParaPantalla = acciones.Select(a => a.GetDescripcion()).ToList();
+
+                    pantRegistrarRespuesta.SolicitarAccionARealizar(accionesParaPantalla);
+                }
+            } 
+            else
+            {
+                pantRegistrarRespuesta.MostrarMensajeValidacionErronea();
             }
         }
 
+        public List<Accion> ObtenerAcciones()
+        {
+            return Data.Acciones;
+        }
+
+        public Accion ObtenerAccionPorDescripcion(string descripcionABuscar)
+        {
+            return ObtenerAcciones().Single(a => a.GetDescripcion() == descripcionABuscar);
+        }
+
+        public void TomarDescripcionDeRespuesta(string descripcion, string accionARealizar)
+        {
+            this.respuestaOperador = descripcion;
+            this.accionARealizarSeleccionada = accionARealizar;
+
+            pantRegistrarRespuesta.SolicitarConfirmacion();
+        }
+
+        public void TomarConfirmacion()
+        {
+            LlamarCURegistrarAccionRequerida();
+            RegistrarLlamadaFinalizada();
+            FinCU();
+        }
+
+        public void RegistrarLlamadaFinalizada()
+        {
+            RegistrarRespuestaDelOperador();
+            EstablecerLlamadaComoFinalizada();
+            llamada.CalcularDuracion();
+        }
+
+        public void LlamarCURegistrarAccionRequerida()
+        {
+            var accionParaRegistrar = ObtenerAccionPorDescripcion(this.accionARealizarSeleccionada);
+
+            gestorRegistrarAccionRequerida.RegistrarAccionRequerida(accionParaRegistrar);
+
+            pantRegistrarRespuesta.InformarAccionRealizadaConExito();
+        }
+
+        public void EstablecerLlamadaComoFinalizada()
+        {
+            var accionFinalizada = ObtenerEstadoFinalizada();
+            var fechaHoraActual = GetFechaYHoraActual();
+            llamada.SetEstadoActual(fechaHoraActual, accionFinalizada);
+        }
+
+        public void RegistrarRespuestaDelOperador()
+        {
+            var descripcionOperador = this.respuestaOperador;
+            llamada.SetDescripcionOperador(descripcionOperador);
+        }
+
+        public Estado ObtenerEstadoFinalizada()
+        {
+            return Data.Estados.First(e => e.EsFinalizada());
+        }
+
+        public void EstablecerOpcionOSubOpcionSeleccionada()
+        {
+            if (this.subOpcionLlamada != null)
+            {
+                llamada.SetSubOpcionLlamada(this.subOpcionLlamada);
+            } else
+            {
+                llamada.SetOpcionLlamada(this.opcion);
+            }
+        }
+
+        public void FinCU()
+        {
+            Application.Exit();
+        }
     }
 }

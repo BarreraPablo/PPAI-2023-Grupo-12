@@ -11,12 +11,11 @@ namespace PPAI_2023.Gestores
     {
         public GestorRegistrarLlamada()
         {
-            LlamarRegistrarAccionRequerida();
         }
 
         public void LlamarRegistrarAccionRequerida()
         {
-            var gestorRegistrarRespuesta = new GestorRegistrarRespuesta();
+            var gestorRegistrarRespuesta = new GestorRegistrarRespuesta(new GestorRegistrarAccionRequerida());
 
             var cliente = Data.Clientes.First();
             var categoriaLlamada = Data.CategoriaLlamadas.First();
@@ -39,7 +38,7 @@ namespace PPAI_2023.Gestores
             Data.Llamadas.Add(llamada);
             Data.CambioEstados.AddRange(llamada.CambioEstado);
 
-            gestorRegistrarRespuesta.OpcionRegistrarseConOperador(cliente, categoriaLlamada, opcion, subopcion);
+            gestorRegistrarRespuesta.OpcionRegistrarseConOperador(llamada, categoriaLlamada, opcion, subopcion);
         }
     }
 }

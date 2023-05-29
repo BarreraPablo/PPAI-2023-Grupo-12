@@ -24,7 +24,18 @@ namespace PPAI_2023.Entidades
         }
 
 
-        public DateTime GetFechaHoraInicio => fechaHoraInicio;
+        public DateTime GetFechaHoraInicio() {
+            return fechaHoraInicio;
+        }
 
+        public bool EsFinalizada()
+        {
+            return Estado.EsFinalizada();
+        }
+
+        public bool EsEnCurso()
+        {
+            return Estado.EsEnCurso();
+        }
     }
 }

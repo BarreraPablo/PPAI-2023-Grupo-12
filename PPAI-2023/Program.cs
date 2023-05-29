@@ -1,4 +1,5 @@
 using PPAI_2023.Gestores;
+using PPAI_2023.Pantallas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,9 @@ namespace PPAI_2023
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Data.GenerarEntidadesDeSoporte();
-            var gestorRegistrarLlamada = new GestorRegistrarLlamada();
-            gestorRegistrarLlamada.LlamarRegistrarAccionRequerida();
-            //Application.Run(new GestorRegistrarLlamada());
+            //var gestorRegistrarLlamada = new GestorRegistrarLlamada();
+            //gestorRegistrarLlamada.LlamarRegistrarAccionRequerida();
+            Application.Run(new PantRegistrarLlamada());
         }
     }
 }

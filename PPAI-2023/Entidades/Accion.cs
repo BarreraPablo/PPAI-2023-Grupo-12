@@ -8,8 +8,16 @@ namespace PPAI_2023.Entidades
 {
     public class Accion
     {
-        private string Descripcion;
+        private string descripcion;
 
-        public string GetDescripcion => Descripcion;
+        public string Descripcion
+        {
+            set { descripcion = value; }
+        }
+
+        public string GetDescripcion()
+        {
+            return descripcion;
+        }
     }
 }

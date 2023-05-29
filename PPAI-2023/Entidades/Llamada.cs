@@ -13,7 +13,6 @@ namespace PPAI_2023.Entidades
         public string DescripcionOperador
         {
             get { return descripcionOperador; }
-            set { descripcionOperador = value; }
         }
 
         private string detalleAccionRequerida;
@@ -29,7 +28,6 @@ namespace PPAI_2023.Entidades
         public TimeSpan Duracion
         {
             get { return duracion; }
-            set { duracion = value; }
         }
 
         private bool encuestaEnviada;
@@ -72,7 +70,31 @@ namespace PPAI_2023.Entidades
             set { cliente = value; }
         }
 
-        public void SetEstadoEnCurso(DateTime fechaHoraActual, Estado estadoPorAsignar)
+        private SubOpcionLlamada subOpcionLlamada;
+
+        public SubOpcionLlamada SubOpcionLlamada
+        {
+            get { return subOpcionLlamada; }
+        }
+
+        private OpcionLlamada opcionLlamada;
+
+        public OpcionLlamada OpcionLlamada
+        {
+            set { opcionLlamada = value; }
+        }
+
+        public void SetSubOpcionLlamada(SubOpcionLlamada subOpcionLlamadaASetear)
+        {
+            this.subOpcionLlamada = subOpcionLlamadaASetear;
+        }
+
+        public void SetOpcionLlamada(OpcionLlamada opcionLlamadaSeleccionada)
+        {
+            this.OpcionLlamada = opcionLlamadaSeleccionada;
+        }
+
+        public void SetEstadoActual(DateTime fechaHoraActual, Estado estadoPorAsignar)
         {
             var nuevoCambioEstado = new CambioEstado
             {
@@ -83,9 +105,39 @@ namespace PPAI_2023.Entidades
             cambioEstado.Add(nuevoCambioEstado);
         }
 
+        public void SetDuracion(TimeSpan duracion)
+        {
+            this.duracion = duracion;
+        }
+
         public string GetNombreClienteDeLlamada()
         {
             return Cliente.GetNombre();
+        }
+
+        public void SetDescripcionOperador(string descripcion)
+        {
+            this.descripcionOperador = descripcion;
+        }
+
+        public void CalcularDuracion()
+        {
+            var fechaHoraInicioCambioEstadoFinalizada = ObtenerCambioEstadoFinalizada().GetFechaHoraInicio();
+            var fechaHoraInicioCambioEstadoEnCurso = ObtenerCambioEnCursoFinalizada().GetFechaHoraInicio();
+
+            var duracion = fechaHoraInicioCambioEstadoFinalizada.Subtract(fechaHoraInicioCambioEstadoEnCurso);
+
+            SetDuracion(duracion);
+        }
+
+        public CambioEstado ObtenerCambioEstadoFinalizada()
+        {
+            return CambioEstado.First(c => c.EsFinalizada());
+        }
+
+        public CambioEstado ObtenerCambioEnCursoFinalizada()
+        {
+            return CambioEstado.First(c => c.EsEnCurso());
         }
     }
 }

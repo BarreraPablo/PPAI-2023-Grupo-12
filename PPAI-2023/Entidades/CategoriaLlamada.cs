@@ -27,8 +27,12 @@ namespace PPAI_2023.Entidades
 
         public string Nombre
         {
-            get { return nombre; }
             set { nombre = value; }
+        }
+
+        public string GetNombre()
+        {
+            return nombre;
         }
 
         private int nroOrden;

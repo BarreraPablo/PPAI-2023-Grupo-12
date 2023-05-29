@@ -18,6 +18,12 @@ namespace PPAI_2023.Entidades
 
         private List<InformacionCliente> informacionCliente;
 
+        public List<InformacionCliente> InformacionCliente
+        {
+            get { return informacionCliente; }
+            set { informacionCliente = value; }
+        }
+
         private List<String> DatosEnLlamada;
 
         private string nombreCompleto;
@@ -38,14 +44,15 @@ namespace PPAI_2023.Entidades
             set { nroCelular = value; }
         }
 
-        public bool EjecutarValidacion(Validacion datoAValidar)
+        public bool EjecutarValidacion(string nombreValidacion, string valorAValidar)
         {
-            Validacion esInformacionCorrecta = new Validacion();
             foreach (var item in informacionCliente)
             {
-                if (item.esValidacion(datoAValidar))
+                if (item.EsValidacion(nombreValidacion))
                 {
-                    if(item.EsInformacionCorrecta(esInformacionCorrecta.Nombre)) return true;
+                    if (item.EsInformacionCorrecta(valorAValidar)) {
+                        return true;
+                    };
                 }
             }
             return false;

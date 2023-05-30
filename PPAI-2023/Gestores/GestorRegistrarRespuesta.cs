@@ -75,7 +75,7 @@ namespace PPAI_2023.Gestores
             var subOpcionNombre = subOpcionLlamada.GetNombre();
             var categoriaSeleccionada = categoria.GetNombre();
 
-            return (nombreCliente, opcionNombre, subOpcionNombre, categoriaSeleccionada);
+            return (nombreCliente, categoriaSeleccionada, opcionNombre, subOpcionNombre);
         }
 
 

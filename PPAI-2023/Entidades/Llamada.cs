@@ -123,7 +123,7 @@ namespace PPAI_2023.Entidades
         public void CalcularDuracion()
         {
             var fechaHoraInicioCambioEstadoFinalizada = ObtenerCambioEstadoFinalizada().GetFechaHoraInicio();
-            var fechaHoraInicioCambioEstadoEnCurso = ObtenerCambioEnCursoFinalizada().GetFechaHoraInicio();
+            var fechaHoraInicioCambioEstadoEnCurso = ObtenerCambioEstadoEnCurso().GetFechaHoraInicio();
 
             var duracion = fechaHoraInicioCambioEstadoFinalizada.Subtract(fechaHoraInicioCambioEstadoEnCurso);
 
@@ -135,7 +135,7 @@ namespace PPAI_2023.Entidades
             return CambioEstado.First(c => c.EsFinalizada());
         }
 
-        public CambioEstado ObtenerCambioEnCursoFinalizada()
+        public CambioEstado ObtenerCambioEstadoEnCurso()
         {
             return CambioEstado.First(c => c.EsEnCurso());
         }

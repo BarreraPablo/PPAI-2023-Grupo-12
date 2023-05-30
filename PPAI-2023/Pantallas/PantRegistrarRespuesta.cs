@@ -105,10 +105,15 @@ namespace PPAI_2023
         public void SolicitarConfirmacion()
         {
             var respuesta = MessageBox.Show("Por favor confirme la operacion a realizar", "Confirmacion", MessageBoxButtons.YesNo);
-            if(respuesta == DialogResult.Yes)
+            if (respuesta == DialogResult.Yes)
             {
-                gestorRegistrarRespuesta.TomarConfirmacion();
+                TomarConfirmacion();
             }
+        }
+
+        public void TomarConfirmacion()
+        {
+            gestorRegistrarRespuesta.TomarConfirmacion();
         }
 
         public void InformarAccionRealizadaConExito()

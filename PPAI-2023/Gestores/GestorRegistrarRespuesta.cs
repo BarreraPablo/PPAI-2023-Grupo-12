@@ -40,7 +40,7 @@ namespace PPAI_2023.Gestores
             SetEstadoEnCurso();
             var (nombreCliente, nombreCategoria, nombreOpcion, nombreSubopcion) = ObtenerDatosLlamada();
             pantRegistrarRespuesta.MostrarDatosLlamada(nombreCliente, nombreCategoria, nombreOpcion, nombreSubopcion);
-            ObtenerValidacionesParaSubopcion();
+            ObtenerValidacionesParaOpcionOSubopcion();
         }
 
         private void SetEstadoEnCurso()
@@ -79,7 +79,7 @@ namespace PPAI_2023.Gestores
         }
 
 
-        private void ObtenerValidacionesParaSubopcion()
+        private void ObtenerValidacionesParaOpcionOSubopcion()
         {
             List<(int nroOrden, string nombreValidacion)> validaciones = null;
             if (subOpcionLlamada != null)
@@ -104,14 +104,20 @@ namespace PPAI_2023.Gestores
 
         public void TomarRespuestaValidacion(string nombreValidacion, string valor)
         {
+            CorroborarValidacion(nombreValidacion, valor);
+        }
+
+        public void CorroborarValidacion(string nombreValidacion, string valor)
+        {
             var resultadoValidacion = llamada.Cliente.EjecutarValidacion(nombreValidacion, valor);
 
             if (resultadoValidacion)
             {
-                if(queueValidaciones.Count() > 0)
+                if (HayMasValidacionesPorMostrar())
                 {
                     MostrarProximaValidacion();
-                } else
+                }
+                else
                 {
                     pantRegistrarRespuesta.SolicitarDescripcionDeRespuesta();
 
@@ -121,11 +127,16 @@ namespace PPAI_2023.Gestores
 
                     pantRegistrarRespuesta.SolicitarAccionARealizar(accionesParaPantalla);
                 }
-            } 
+            }
             else
             {
                 pantRegistrarRespuesta.MostrarMensajeValidacionErronea();
             }
+        }
+
+        public bool HayMasValidacionesPorMostrar()
+        {
+            return queueValidaciones.Count() > 0;
         }
 
         public List<Accion> ObtenerAcciones()
@@ -158,6 +169,7 @@ namespace PPAI_2023.Gestores
             RegistrarRespuestaDelOperador();
             EstablecerLlamadaComoFinalizada();
             llamada.CalcularDuracion();
+            EstablecerOpcionOSubOpcionSeleccionada();
         }
 
         public void LlamarCURegistrarAccionRequerida()

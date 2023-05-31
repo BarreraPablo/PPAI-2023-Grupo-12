@@ -51,11 +51,6 @@ namespace PPAI_2023
             }
         }
 
-        public void OcultarValidacion()
-        {
-
-        }
-
         private void TomarRespuestaValidacion(object sender, EventArgs e)
         {
             if (validacionActual == "fechaNacimiento")

@@ -131,6 +131,7 @@ namespace PPAI_2023.Gestores
             else
             {
                 pantRegistrarRespuesta.MostrarMensajeValidacionErronea();
+                FinCU();
             }
         }
 
@@ -208,6 +209,19 @@ namespace PPAI_2023.Gestores
             {
                 llamada.SetOpcionLlamada(this.opcion);
             }
+        }
+
+        public void TomarCancelacion()
+        {
+            var estadoCancelada = ObtenerEstadoCancelada();
+            var fechaHoraActual = GetFechaYHoraActual();
+            llamada.SetEstadoActual(fechaHoraActual, estadoCancelada);
+            FinCU();
+        }
+
+        public Estado ObtenerEstadoCancelada()
+        {
+            return Data.Estados.First(e => e.EsFinalizada());
         }
 
         public void FinCU()

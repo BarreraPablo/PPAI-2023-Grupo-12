@@ -26,5 +26,10 @@ namespace PPAI_2023.Entidades
         {
             return nombre == "Finalizada";
         }
+
+        public bool EsCancelada()
+        {
+            return nombre == "Cancelada";
+        }
     }
 }

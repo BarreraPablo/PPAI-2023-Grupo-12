@@ -92,7 +92,6 @@ namespace PPAI_2023
         public void MostrarMensajeValidacionErronea()
         {
             MessageBox.Show("El dato ingresado es incorrecto.", "Atención");
-            Application.Exit();
         }
 
         private void TomarDescripcionDeRespuesta(object sender, EventArgs e)
@@ -119,6 +118,11 @@ namespace PPAI_2023
         public void InformarAccionRealizadaConExito()
         {
             MessageBox.Show("La accion ha sido realizada con exito");
+        }
+
+        private void TomarCancelacion(object sender, EventArgs e)
+        {
+            gestorRegistrarRespuesta.TomarCancelacion();
         }
     }
 }

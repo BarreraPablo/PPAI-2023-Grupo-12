@@ -29,288 +29,326 @@ namespace PPAI_2023
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblNombreCliente = new System.Windows.Forms.Label();
-            this.lblNombreCategoria = new System.Windows.Forms.Label();
-            this.lblNombreOpcion = new System.Windows.Forms.Label();
-            this.lblNombreSubopcion = new System.Windows.Forms.Label();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
-            this.txtNombreCategoria = new System.Windows.Forms.TextBox();
-            this.txtNombreOpcion = new System.Windows.Forms.TextBox();
-            this.txtNombreSubopcion = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pnlCodigoPostal = new System.Windows.Forms.Panel();
-            this.txtCodigoPostal = new System.Windows.Forms.TextBox();
-            this.btnComprobarCodigoPostal = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pnlFechaNacimiento = new System.Windows.Forms.Panel();
-            this.btnComprobarFechaNacimiento = new System.Windows.Forms.Button();
-            this.lblFechaNacimiento = new System.Windows.Forms.Label();
-            this.dtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbAccionARealizar = new System.Windows.Forms.ComboBox();
-            this.btnAceptarRespuestaOperador = new System.Windows.Forms.Button();
-            this.txtRespuestaOperador = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.pnlCodigoPostal.SuspendLayout();
-            this.pnlFechaNacimiento.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.SuspendLayout();
+            lblNombreCliente = new System.Windows.Forms.Label();
+            lblNombreCategoria = new System.Windows.Forms.Label();
+            lblNombreOpcion = new System.Windows.Forms.Label();
+            lblNombreSubopcion = new System.Windows.Forms.Label();
+            txtNombreCliente = new System.Windows.Forms.TextBox();
+            txtNombreCategoria = new System.Windows.Forms.TextBox();
+            txtNombreOpcion = new System.Windows.Forms.TextBox();
+            txtNombreSubopcion = new System.Windows.Forms.TextBox();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            pnlCodigoPostal = new System.Windows.Forms.Panel();
+            txtCodigoPostal = new System.Windows.Forms.TextBox();
+            btnComprobarCodigoPostal = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            pnlFechaNacimiento = new System.Windows.Forms.Panel();
+            btnComprobarFechaNacimiento = new System.Windows.Forms.Button();
+            lblFechaNacimiento = new System.Windows.Forms.Label();
+            dtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            groupBox3 = new System.Windows.Forms.GroupBox();
+            label3 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            cbAccionARealizar = new System.Windows.Forms.ComboBox();
+            btnAceptarRespuestaOperador = new System.Windows.Forms.Button();
+            txtRespuestaOperador = new System.Windows.Forms.TextBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            label4 = new System.Windows.Forms.Label();
+            panel1 = new System.Windows.Forms.Panel();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            pnlCodigoPostal.SuspendLayout();
+            pnlFechaNacimiento.SuspendLayout();
+            groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // lblNombreCliente
             // 
-            this.lblNombreCliente.AutoSize = true;
-            this.lblNombreCliente.Location = new System.Drawing.Point(47, 45);
-            this.lblNombreCliente.Name = "lblNombreCliente";
-            this.lblNombreCliente.Size = new System.Drawing.Size(92, 15);
-            this.lblNombreCliente.TabIndex = 0;
-            this.lblNombreCliente.Text = "Nombre cliente:";
+            lblNombreCliente.AutoSize = true;
+            lblNombreCliente.Location = new System.Drawing.Point(47, 45);
+            lblNombreCliente.Name = "lblNombreCliente";
+            lblNombreCliente.Size = new System.Drawing.Size(92, 15);
+            lblNombreCliente.TabIndex = 0;
+            lblNombreCliente.Text = "Nombre cliente:";
             // 
             // lblNombreCategoria
             // 
-            this.lblNombreCategoria.AutoSize = true;
-            this.lblNombreCategoria.Location = new System.Drawing.Point(33, 79);
-            this.lblNombreCategoria.Name = "lblNombreCategoria";
-            this.lblNombreCategoria.Size = new System.Drawing.Size(106, 15);
-            this.lblNombreCategoria.TabIndex = 1;
-            this.lblNombreCategoria.Text = "Nombre categoria:";
+            lblNombreCategoria.AutoSize = true;
+            lblNombreCategoria.Location = new System.Drawing.Point(33, 79);
+            lblNombreCategoria.Name = "lblNombreCategoria";
+            lblNombreCategoria.Size = new System.Drawing.Size(106, 15);
+            lblNombreCategoria.TabIndex = 1;
+            lblNombreCategoria.Text = "Nombre categoria:";
             // 
             // lblNombreOpcion
             // 
-            this.lblNombreOpcion.AutoSize = true;
-            this.lblNombreOpcion.Location = new System.Drawing.Point(45, 113);
-            this.lblNombreOpcion.Name = "lblNombreOpcion";
-            this.lblNombreOpcion.Size = new System.Drawing.Size(94, 15);
-            this.lblNombreOpcion.TabIndex = 2;
-            this.lblNombreOpcion.Text = "Nombre opcion:";
+            lblNombreOpcion.AutoSize = true;
+            lblNombreOpcion.Location = new System.Drawing.Point(45, 113);
+            lblNombreOpcion.Name = "lblNombreOpcion";
+            lblNombreOpcion.Size = new System.Drawing.Size(94, 15);
+            lblNombreOpcion.TabIndex = 2;
+            lblNombreOpcion.Text = "Nombre opcion:";
             // 
             // lblNombreSubopcion
             // 
-            this.lblNombreSubopcion.AutoSize = true;
-            this.lblNombreSubopcion.Location = new System.Drawing.Point(21, 147);
-            this.lblNombreSubopcion.Name = "lblNombreSubopcion";
-            this.lblNombreSubopcion.Size = new System.Drawing.Size(118, 15);
-            this.lblNombreSubopcion.TabIndex = 3;
-            this.lblNombreSubopcion.Text = "Nombre sub-opcion:";
+            lblNombreSubopcion.AutoSize = true;
+            lblNombreSubopcion.Location = new System.Drawing.Point(21, 147);
+            lblNombreSubopcion.Name = "lblNombreSubopcion";
+            lblNombreSubopcion.Size = new System.Drawing.Size(118, 15);
+            lblNombreSubopcion.TabIndex = 3;
+            lblNombreSubopcion.Text = "Nombre sub-opcion:";
             // 
             // txtNombreCliente
             // 
-            this.txtNombreCliente.Enabled = false;
-            this.txtNombreCliente.Location = new System.Drawing.Point(145, 42);
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(159, 23);
-            this.txtNombreCliente.TabIndex = 4;
+            txtNombreCliente.Enabled = false;
+            txtNombreCliente.Location = new System.Drawing.Point(145, 42);
+            txtNombreCliente.Name = "txtNombreCliente";
+            txtNombreCliente.Size = new System.Drawing.Size(159, 23);
+            txtNombreCliente.TabIndex = 4;
             // 
             // txtNombreCategoria
             // 
-            this.txtNombreCategoria.Enabled = false;
-            this.txtNombreCategoria.Location = new System.Drawing.Point(145, 76);
-            this.txtNombreCategoria.Name = "txtNombreCategoria";
-            this.txtNombreCategoria.Size = new System.Drawing.Size(159, 23);
-            this.txtNombreCategoria.TabIndex = 5;
+            txtNombreCategoria.Enabled = false;
+            txtNombreCategoria.Location = new System.Drawing.Point(145, 76);
+            txtNombreCategoria.Name = "txtNombreCategoria";
+            txtNombreCategoria.Size = new System.Drawing.Size(159, 23);
+            txtNombreCategoria.TabIndex = 5;
             // 
             // txtNombreOpcion
             // 
-            this.txtNombreOpcion.Enabled = false;
-            this.txtNombreOpcion.Location = new System.Drawing.Point(145, 110);
-            this.txtNombreOpcion.Name = "txtNombreOpcion";
-            this.txtNombreOpcion.Size = new System.Drawing.Size(159, 23);
-            this.txtNombreOpcion.TabIndex = 6;
+            txtNombreOpcion.Enabled = false;
+            txtNombreOpcion.Location = new System.Drawing.Point(145, 110);
+            txtNombreOpcion.Name = "txtNombreOpcion";
+            txtNombreOpcion.Size = new System.Drawing.Size(159, 23);
+            txtNombreOpcion.TabIndex = 6;
             // 
             // txtNombreSubopcion
             // 
-            this.txtNombreSubopcion.Enabled = false;
-            this.txtNombreSubopcion.Location = new System.Drawing.Point(145, 144);
-            this.txtNombreSubopcion.Name = "txtNombreSubopcion";
-            this.txtNombreSubopcion.Size = new System.Drawing.Size(159, 23);
-            this.txtNombreSubopcion.TabIndex = 7;
+            txtNombreSubopcion.Enabled = false;
+            txtNombreSubopcion.Location = new System.Drawing.Point(145, 144);
+            txtNombreSubopcion.Name = "txtNombreSubopcion";
+            txtNombreSubopcion.Size = new System.Drawing.Size(159, 23);
+            txtNombreSubopcion.TabIndex = 7;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtNombreCliente);
-            this.groupBox1.Controls.Add(this.txtNombreSubopcion);
-            this.groupBox1.Controls.Add(this.lblNombreCliente);
-            this.groupBox1.Controls.Add(this.txtNombreOpcion);
-            this.groupBox1.Controls.Add(this.lblNombreCategoria);
-            this.groupBox1.Controls.Add(this.txtNombreCategoria);
-            this.groupBox1.Controls.Add(this.lblNombreOpcion);
-            this.groupBox1.Controls.Add(this.lblNombreSubopcion);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(427, 219);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Datos llamada:";
+            groupBox1.Controls.Add(txtNombreCliente);
+            groupBox1.Controls.Add(txtNombreSubopcion);
+            groupBox1.Controls.Add(lblNombreCliente);
+            groupBox1.Controls.Add(txtNombreOpcion);
+            groupBox1.Controls.Add(lblNombreCategoria);
+            groupBox1.Controls.Add(txtNombreCategoria);
+            groupBox1.Controls.Add(lblNombreOpcion);
+            groupBox1.Controls.Add(lblNombreSubopcion);
+            groupBox1.Location = new System.Drawing.Point(12, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new System.Drawing.Size(427, 219);
+            groupBox1.TabIndex = 8;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Datos llamada:";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pnlCodigoPostal);
-            this.groupBox2.Controls.Add(this.pnlFechaNacimiento);
-            this.groupBox2.Location = new System.Drawing.Point(12, 260);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(427, 257);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Validaciones";
+            groupBox2.Controls.Add(pnlCodigoPostal);
+            groupBox2.Controls.Add(pnlFechaNacimiento);
+            groupBox2.Location = new System.Drawing.Point(12, 260);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new System.Drawing.Size(427, 257);
+            groupBox2.TabIndex = 9;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Validaciones";
             // 
             // pnlCodigoPostal
             // 
-            this.pnlCodigoPostal.Controls.Add(this.txtCodigoPostal);
-            this.pnlCodigoPostal.Controls.Add(this.btnComprobarCodigoPostal);
-            this.pnlCodigoPostal.Controls.Add(this.label1);
-            this.pnlCodigoPostal.Location = new System.Drawing.Point(21, 133);
-            this.pnlCodigoPostal.Name = "pnlCodigoPostal";
-            this.pnlCodigoPostal.Size = new System.Drawing.Size(275, 105);
-            this.pnlCodigoPostal.TabIndex = 3;
-            this.pnlCodigoPostal.Visible = false;
+            pnlCodigoPostal.Controls.Add(txtCodigoPostal);
+            pnlCodigoPostal.Controls.Add(btnComprobarCodigoPostal);
+            pnlCodigoPostal.Controls.Add(label1);
+            pnlCodigoPostal.Location = new System.Drawing.Point(21, 133);
+            pnlCodigoPostal.Name = "pnlCodigoPostal";
+            pnlCodigoPostal.Size = new System.Drawing.Size(275, 105);
+            pnlCodigoPostal.TabIndex = 3;
+            pnlCodigoPostal.Visible = false;
             // 
             // txtCodigoPostal
             // 
-            this.txtCodigoPostal.Location = new System.Drawing.Point(18, 37);
-            this.txtCodigoPostal.Name = "txtCodigoPostal";
-            this.txtCodigoPostal.Size = new System.Drawing.Size(198, 23);
-            this.txtCodigoPostal.TabIndex = 3;
+            txtCodigoPostal.Location = new System.Drawing.Point(18, 37);
+            txtCodigoPostal.Name = "txtCodigoPostal";
+            txtCodigoPostal.Size = new System.Drawing.Size(198, 23);
+            txtCodigoPostal.TabIndex = 3;
             // 
             // btnComprobarCodigoPostal
             // 
-            this.btnComprobarCodigoPostal.Location = new System.Drawing.Point(82, 69);
-            this.btnComprobarCodigoPostal.Name = "btnComprobarCodigoPostal";
-            this.btnComprobarCodigoPostal.Size = new System.Drawing.Size(93, 23);
-            this.btnComprobarCodigoPostal.TabIndex = 2;
-            this.btnComprobarCodigoPostal.Text = "Comprobar";
-            this.btnComprobarCodigoPostal.UseVisualStyleBackColor = true;
-            this.btnComprobarCodigoPostal.Click += new System.EventHandler(this.TomarRespuestaValidacion);
+            btnComprobarCodigoPostal.Location = new System.Drawing.Point(82, 69);
+            btnComprobarCodigoPostal.Name = "btnComprobarCodigoPostal";
+            btnComprobarCodigoPostal.Size = new System.Drawing.Size(93, 23);
+            btnComprobarCodigoPostal.TabIndex = 2;
+            btnComprobarCodigoPostal.Text = "Comprobar";
+            btnComprobarCodigoPostal.UseVisualStyleBackColor = true;
+            btnComprobarCodigoPostal.Click += TomarRespuestaValidacion;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ingrese el codigo postal del cliente:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(16, 13);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(192, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Ingrese el codigo postal del cliente:";
             // 
             // pnlFechaNacimiento
             // 
-            this.pnlFechaNacimiento.Controls.Add(this.btnComprobarFechaNacimiento);
-            this.pnlFechaNacimiento.Controls.Add(this.lblFechaNacimiento);
-            this.pnlFechaNacimiento.Controls.Add(this.dtFechaNacimiento);
-            this.pnlFechaNacimiento.Location = new System.Drawing.Point(21, 22);
-            this.pnlFechaNacimiento.Name = "pnlFechaNacimiento";
-            this.pnlFechaNacimiento.Size = new System.Drawing.Size(275, 105);
-            this.pnlFechaNacimiento.TabIndex = 2;
-            this.pnlFechaNacimiento.Visible = false;
+            pnlFechaNacimiento.Controls.Add(btnComprobarFechaNacimiento);
+            pnlFechaNacimiento.Controls.Add(lblFechaNacimiento);
+            pnlFechaNacimiento.Controls.Add(dtFechaNacimiento);
+            pnlFechaNacimiento.Location = new System.Drawing.Point(21, 22);
+            pnlFechaNacimiento.Name = "pnlFechaNacimiento";
+            pnlFechaNacimiento.Size = new System.Drawing.Size(275, 105);
+            pnlFechaNacimiento.TabIndex = 2;
+            pnlFechaNacimiento.Visible = false;
             // 
             // btnComprobarFechaNacimiento
             // 
-            this.btnComprobarFechaNacimiento.Location = new System.Drawing.Point(82, 69);
-            this.btnComprobarFechaNacimiento.Name = "btnComprobarFechaNacimiento";
-            this.btnComprobarFechaNacimiento.Size = new System.Drawing.Size(93, 23);
-            this.btnComprobarFechaNacimiento.TabIndex = 2;
-            this.btnComprobarFechaNacimiento.Text = "Comprobar";
-            this.btnComprobarFechaNacimiento.UseVisualStyleBackColor = true;
-            this.btnComprobarFechaNacimiento.Click += new System.EventHandler(this.TomarRespuestaValidacion);
+            btnComprobarFechaNacimiento.Location = new System.Drawing.Point(82, 69);
+            btnComprobarFechaNacimiento.Name = "btnComprobarFechaNacimiento";
+            btnComprobarFechaNacimiento.Size = new System.Drawing.Size(93, 23);
+            btnComprobarFechaNacimiento.TabIndex = 2;
+            btnComprobarFechaNacimiento.Text = "Comprobar";
+            btnComprobarFechaNacimiento.UseVisualStyleBackColor = true;
+            btnComprobarFechaNacimiento.Click += TomarRespuestaValidacion;
             // 
             // lblFechaNacimiento
             // 
-            this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(16, 13);
-            this.lblFechaNacimiento.Name = "lblFechaNacimiento";
-            this.lblFechaNacimiento.Size = new System.Drawing.Size(228, 15);
-            this.lblFechaNacimiento.TabIndex = 1;
-            this.lblFechaNacimiento.Text = "Ingrese la fecha de nacimiento del cliente:";
+            lblFechaNacimiento.AutoSize = true;
+            lblFechaNacimiento.Location = new System.Drawing.Point(16, 13);
+            lblFechaNacimiento.Name = "lblFechaNacimiento";
+            lblFechaNacimiento.Size = new System.Drawing.Size(228, 15);
+            lblFechaNacimiento.TabIndex = 1;
+            lblFechaNacimiento.Text = "Ingrese la fecha de nacimiento del cliente:";
             // 
             // dtFechaNacimiento
             // 
-            this.dtFechaNacimiento.Location = new System.Drawing.Point(16, 35);
-            this.dtFechaNacimiento.Name = "dtFechaNacimiento";
-            this.dtFechaNacimiento.Size = new System.Drawing.Size(200, 23);
-            this.dtFechaNacimiento.TabIndex = 0;
+            dtFechaNacimiento.Location = new System.Drawing.Point(16, 35);
+            dtFechaNacimiento.Name = "dtFechaNacimiento";
+            dtFechaNacimiento.Size = new System.Drawing.Size(200, 23);
+            dtFechaNacimiento.TabIndex = 0;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.cbAccionARealizar);
-            this.groupBox3.Controls.Add(this.btnAceptarRespuestaOperador);
-            this.groupBox3.Controls.Add(this.txtRespuestaOperador);
-            this.groupBox3.Location = new System.Drawing.Point(476, 12);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(427, 298);
-            this.groupBox3.TabIndex = 9;
-            this.groupBox3.TabStop = false;
+            groupBox3.Controls.Add(label3);
+            groupBox3.Controls.Add(label2);
+            groupBox3.Controls.Add(cbAccionARealizar);
+            groupBox3.Controls.Add(btnAceptarRespuestaOperador);
+            groupBox3.Controls.Add(txtRespuestaOperador);
+            groupBox3.Location = new System.Drawing.Point(476, 12);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new System.Drawing.Size(427, 298);
+            groupBox3.TabIndex = 9;
+            groupBox3.TabStop = false;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 204);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 15);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Acción a realizar:";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(16, 204);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(96, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Acción a realizar:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 15);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Respuesta operador:";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(16, 19);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(114, 15);
+            label2.TabIndex = 7;
+            label2.Text = "Respuesta operador:";
             // 
             // cbAccionARealizar
             // 
-            this.cbAccionARealizar.Enabled = false;
-            this.cbAccionARealizar.FormattingEnabled = true;
-            this.cbAccionARealizar.Location = new System.Drawing.Point(16, 226);
-            this.cbAccionARealizar.Name = "cbAccionARealizar";
-            this.cbAccionARealizar.Size = new System.Drawing.Size(214, 23);
-            this.cbAccionARealizar.TabIndex = 6;
+            cbAccionARealizar.Enabled = false;
+            cbAccionARealizar.FormattingEnabled = true;
+            cbAccionARealizar.Location = new System.Drawing.Point(16, 226);
+            cbAccionARealizar.Name = "cbAccionARealizar";
+            cbAccionARealizar.Size = new System.Drawing.Size(214, 23);
+            cbAccionARealizar.TabIndex = 6;
             // 
             // btnAceptarRespuestaOperador
             // 
-            this.btnAceptarRespuestaOperador.Enabled = false;
-            this.btnAceptarRespuestaOperador.Location = new System.Drawing.Point(159, 263);
-            this.btnAceptarRespuestaOperador.Name = "btnAceptarRespuestaOperador";
-            this.btnAceptarRespuestaOperador.Size = new System.Drawing.Size(93, 23);
-            this.btnAceptarRespuestaOperador.TabIndex = 3;
-            this.btnAceptarRespuestaOperador.Text = "Aceptar";
-            this.btnAceptarRespuestaOperador.UseVisualStyleBackColor = true;
-            this.btnAceptarRespuestaOperador.Click += new System.EventHandler(this.TomarDescripcionDeRespuesta);
+            btnAceptarRespuestaOperador.Enabled = false;
+            btnAceptarRespuestaOperador.Location = new System.Drawing.Point(159, 263);
+            btnAceptarRespuestaOperador.Name = "btnAceptarRespuestaOperador";
+            btnAceptarRespuestaOperador.Size = new System.Drawing.Size(93, 23);
+            btnAceptarRespuestaOperador.TabIndex = 3;
+            btnAceptarRespuestaOperador.Text = "Aceptar";
+            btnAceptarRespuestaOperador.UseVisualStyleBackColor = true;
+            btnAceptarRespuestaOperador.Click += TomarDescripcionDeRespuesta;
             // 
             // txtRespuestaOperador
             // 
-            this.txtRespuestaOperador.Enabled = false;
-            this.txtRespuestaOperador.Location = new System.Drawing.Point(16, 42);
-            this.txtRespuestaOperador.Multiline = true;
-            this.txtRespuestaOperador.Name = "txtRespuestaOperador";
-            this.txtRespuestaOperador.Size = new System.Drawing.Size(394, 145);
-            this.txtRespuestaOperador.TabIndex = 5;
+            txtRespuestaOperador.Enabled = false;
+            txtRespuestaOperador.Location = new System.Drawing.Point(16, 42);
+            txtRespuestaOperador.Multiline = true;
+            txtRespuestaOperador.Name = "txtRespuestaOperador";
+            txtRespuestaOperador.Size = new System.Drawing.Size(394, 145);
+            txtRespuestaOperador.TabIndex = 5;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.png_transparent_computer_icons_telephone_call_texas_state_university_parking_services_email_hanok_text_telephone_call_service1;
+            pictureBox1.Location = new System.Drawing.Point(12, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(66, 42);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(84, 24);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(144, 15);
+            label4.TabIndex = 9;
+            label4.Text = "El cliente colgo la llamada";
+            // 
+            // panel1
+            // 
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label4);
+            panel1.Location = new System.Drawing.Point(576, 358);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(242, 63);
+            panel1.TabIndex = 11;
+            panel1.Click += TomarCancelacion;
             // 
             // PantRegistrarRespuesta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(970, 563);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "PantRegistrarRespuesta";
-            this.Text = "Form1";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.pnlCodigoPostal.ResumeLayout(false);
-            this.pnlCodigoPostal.PerformLayout();
-            this.pnlFechaNacimiento.ResumeLayout(false);
-            this.pnlFechaNacimiento.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(970, 563);
+            Controls.Add(panel1);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
+            Name = "PantRegistrarRespuesta";
+            Text = "Form1";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            pnlCodigoPostal.ResumeLayout(false);
+            pnlCodigoPostal.PerformLayout();
+            pnlFechaNacimiento.ResumeLayout(false);
+            pnlFechaNacimiento.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -339,6 +377,9 @@ namespace PPAI_2023
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbAccionARealizar;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

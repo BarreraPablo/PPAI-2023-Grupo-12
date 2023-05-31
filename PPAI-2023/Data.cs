@@ -166,6 +166,10 @@ namespace PPAI_2023
                 new Estado
                 {
                     Nombre = "Finalizada"
+                },
+                new Estado
+                {
+                    Nombre = "Finalizada"
                 }
             };
             Estados.AddRange(estados);
